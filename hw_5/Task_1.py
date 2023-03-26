@@ -1,6 +1,5 @@
 import random
 
-
 list_number = list()
 count = 0
 
@@ -10,5 +9,6 @@ while count < 10:
     count += 1
 
 max_number = max(list_number)
+
 print(list_number)
 print(max_number)
