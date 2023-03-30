@@ -1,6 +1,6 @@
 def calculate():
-    a = int(input("Write number a: "))
-    b = int(input("Write number b: "))
+    a = float(input("Write number a: "))
+    b = float(input("Write number b: "))
     value = (a**2)/b
     return value
 
