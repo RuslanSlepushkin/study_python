@@ -8,6 +8,7 @@ def stop_words(words: list):
         return wrapper
     return decarator
 
+
 @stop_words(['pepsi', 'BMW'])
 def create_slogan(name: str) -> str:
     return f"{name} drinks pepsi in his brand new BMW!"

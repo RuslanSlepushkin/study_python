@@ -1,4 +1,8 @@
+from functools import wraps
+
+
 def logger(func: callable):
+    @wraps(func)
     def wrapper(*args):
         print(f"Name function is '{func.__name__}' and arguments are {args}.")
     return wrapper
