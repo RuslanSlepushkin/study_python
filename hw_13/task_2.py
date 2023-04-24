@@ -12,4 +12,5 @@ class Dog:
 
 
 dog = Dog(age=10)
+
 print(dog.human_age())

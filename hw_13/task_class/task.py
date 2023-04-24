@@ -8,7 +8,8 @@
 #
 # Важливо: не чіпайте поки іншу функціональність застосунку.
 
-from valid import validate_name, validate_year, validate_director, validate_rank
+from typing import Dict
+from valid import ValidateName, ValidateYear, ValidateDirector, ValidateRank
 
 name_input = input("Write the name of the film: ")
 year_input = input("Write the year of the film: ")
@@ -17,37 +18,29 @@ director_input = input("Write the name of the director of the film: ")
 
 
 class Film:
-    def __init__(self, name: str, year: str, imdb: str, director: str):
-        is_name_valid = validate_name(name)
-        if is_name_valid:
-            self.name = name
-        else:
-            raise ValueError
-
-        is_year_valid = validate_year(year)
-        if is_year_valid:
-            self.year = year
-        else:
-            raise ValueError
-
-        is_rank_valid = validate_rank(imdb)
-        if is_rank_valid:
-            self.imdb = imdb
-        else:
-            raise ValueError
-
-        is_director_valid = validate_director(director)
-        if is_director_valid:
-            self.director = director
-        else:
-            raise ValueError
+    def __init__(self, **attributes: Dict) -> None:
+        self.dict_validator = {
+            'name': ValidateName(),
+            'year': ValidateYear(),
+            'director': ValidateDirector(),
+            'imdb': ValidateRank(),
+        }
+        for attribute, value in attributes.items():
+            if attribute in self.dict_validator.keys():
+                    validator = self.dict_validator[attribute]
+                    if validator.validate(value):
+                        setattr(self, attribute, value)
+                    else:
+                        raise ValueError("Input data error")
+            else:
+                print("Not available field validator")
 
 
-    def choise_film(self):
+    def choice_film(self):
         greeting_film = print(f"The title of the movie {self.name} was released " +
                               f"in {self.year} directed by {self.director} and has an imdb rating of {self.imdb}.")
         return greeting_film
 
 
 film = Film(name=name_input, year=year_input, imdb=imdb_input, director=director_input)
-film.choise_film()
+film.choice_film()

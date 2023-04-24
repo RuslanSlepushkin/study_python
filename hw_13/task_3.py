@@ -1,3 +1,5 @@
+from typing import Union
+
 channels = ["BBC", "Discovery", "TV1000"]
 
 
@@ -34,7 +36,7 @@ class TVController:
         return self.channels[self.current_channel]
 
 
-    def is_exist(self, channel) -> str:
+    def is_exist(self, channel: Union[int, str]) -> str:
         if type(channel) is int:
             if 1 <= channel <= self.count_channels:
                 return 'Yes'
