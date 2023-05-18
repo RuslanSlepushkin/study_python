@@ -15,12 +15,8 @@ class Mathematician:
     def filter_leaps(self, numbers: List) -> List:
         result = list()
         for number in numbers:
-            if number % 4 == 0:
-                if number % 100 == 0:
-                    if number % 400 == 0:
-                        result.append(number)
-                else:
-                    result.append(number)
+            if number % 4 == 0 and (number % 100 != 0 or number % 400 == 0):
+                result.append(number)
         return result
 
 
