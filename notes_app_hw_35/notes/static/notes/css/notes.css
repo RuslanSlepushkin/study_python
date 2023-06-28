@@ -1,0 +1,28 @@
+body {
+    background: white;
+    color: red;
+}
+
+body img {
+    width: 100px;
+}
+
+body h2 img {
+    width: 15px;
+}
+
+body p {
+    color: green
+}
+
+body h2 {
+    color: blue
+}
+
+main {
+    float: left,
+}
+
+aside {
+    text-align: center;
+}

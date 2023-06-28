@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'notes/css/notes.css' %}">
+</head>
+<body>
+    <aside>
+        <h1>{{ title }}</h1>
+        <img src="{% static 'notes/img/notes_img.svg'%}" alt="note">
+    </aside>
+    <main>
+        {% for note in notes %}
+            <h2><img src="{% static 'notes/img/notes_img.svg'%}" alt="note">{{ note }}</h2>
+            <p>My {{ note }}.</p>
+        {% endfor %}
+    </main>
+</body>
+</html>
